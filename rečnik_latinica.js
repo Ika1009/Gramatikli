@@ -1,26 +1,6 @@
 
 
 let recnik = {
-  "dictionary": {
-    "metadata": {
-      "RDF": {
-        "Description": {
-          "title": "Language Laboratory Dictionary",
-          "creator": [
-            "Nikola Smolenski",
-            "Adam Sofronijević"
-          ],
-          "contributor": "Language Laboratory contributors",
-          "publisher": "University Library „Svetozar Marković“",
-          "date": "2022-12-14T00:01:50+01:00",
-          "language": "sr",
-          "type": "",
-          "description": "Rečnik je spisak reči obrađenih na projektu. Za svaku reč moguće je videti sve unete oblike, a za svaki oblik broj iskaza i njihovu težinu. Broj iskaza je jednostavno broj korisnika koji su uneli isti oblik za istu tvrdnju. Težina je njihova ukupna težina — postoji mogućnost da se nekim korisnicima da veća težina nego drugima (npr. da je jedan njihov unos „težak“ kao dva unosa nekog drugog), ali ovo se koristilo samo u ranim danima rečnika kad je bilo veoma malo korisnika.\n\nPri dosadašnjem radu, ustanovili smo da korisnici prave manje od 1% grešaka; zbog sigurnosti zaokružujemo to na 1%. To znači da, ako neka tvrdnja ima jedan iskaz, može se smatrati da je verovatnoća njene tačnosti 99%; za dva ista iskaza, 99,99%; za tri ista iskaza, 99,9999%, što smatramo zadovoljavajućem tačnošću za praktičnu upotrebu (jedna greška u milion). Ovo se naravno odnosi na slučajne greške u kucanju i sl. a ne na sistematske greške koje mogu nastati zbog različitog gramatičkog osećaja različitih korisnika.\n\nRečnik je moguće preuzeti i u XML formatu za dalju kompjutersku obradu, sa istim sadržajem. Rečnik sadrži samo iskaze sa težinom 3 ili većom, dok sirovi rečnik sadrži sve iskaze.",
-          "rights": "CC-BY"
-        }
-      }
-    },
-    "entries": {
       "entry": [
         {
           "word": "Abdula",
@@ -87519,6 +87499,4 @@ let recnik = {
           ]
         }
       ]
-    }
-  }
-}
+    };
