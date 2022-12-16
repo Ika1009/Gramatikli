@@ -108770,7 +108770,6 @@ var recnik = [
 "mozgovima",
 "mozgom",
 "mozgu",
-"mozda",
 "moze",
 "mozer",
 "mozetić",
