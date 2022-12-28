@@ -1,4 +1,4 @@
-var recnik = [
+const recnik_latinica_alfabeticki_sort = [
 "a",
 "aba",
 "abažur",
@@ -98616,10 +98616,6 @@ var recnik = [
 "loro",
 "lorom",
 "loru",
-"lorupe",
-"los",
-"Los",
-"losadolf",
 "losion",
 "losiona",
 "losione",
@@ -98627,7 +98623,6 @@ var recnik = [
 "losos",
 "lososa",
 "lososom",
-"lot",
 "lota",
 "lotara",
 "lotje",
