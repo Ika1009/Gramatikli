@@ -1,9 +1,9 @@
 
-import recnik_latinica_alfabeticki_sort from ('recnik_latinica.js');
+//import recnik_latinica_alfabeticki_sort from './recnik_latinica.js';
 
 var typingTimer;                //timer identifier
 var doneTypingInterval = 3000;  //time in ms (5 seconds)
-let textArea = document.getElementsByTagName('textarea')[0]; // za sad je samo za jedan, bice za sve
+let textArea = document.getElementsByTagName('input')[0]; // za sad je samo za jedan, bice za sve
 
 
 //funkcija da se upali funkcija ProveriGreske kad se zavrsi tajmer od 3 sekunde
@@ -17,31 +17,37 @@ textArea.addEventListener('keyup', () => {
 function ProveriGreske() // kad se zavrsi kucanje proverava text input boxa
 {
     let tekst = textArea.value;
+    ProveriZaTypos(tekst);
+    return;
     let reci = tekst.split(' ');
-    console.log(reci);
     for(let i = 0; i < reci.length; i++) // for za svaku rec ukucanu
     {
-        console.log("Pravilna rec je: " + PravilnaRecIliNe(reci[i]));
+        // da se doda da ne proverava za reci ako su ceste kao a ili i... i da ne proverava za spejsove, vec proverio ProveraZaTypos
+        //console.log("Pravilna rec je: " + PravilnaRecIliNe(reci[i]));
     }
 }
 
-function ProveriZaTypos(tekst) // proveri CAPS Lock da li je dobar u recenici
+function ProveriZaTypos(tekst)
 {
+    console.log(tekst);
     for(let i = 0; i < tekst.length - 2; i++) // za svaki karakter u tekstu
     {
         if(tekst[i] == '.' && tekst[i+1] != ' '){ // treba da obelezi da treba space
-            // podvuci crveno, treba razmak posle tacke
+            PodvuciCrveno(i, i+1);// podvuci crveno, treba razmak posle tacke
             
             if(tekst[i+1].charCodeAt(0)>=97 && tekst[i+1].charCodeAt(0) <= 122){
-                // podvuci crveno, treba veliko slovo
+                PodvuciCrveno(i, i+1); // podvuci crveno, treba veliko slovo
             }
         }
-        //podvuci crveno, dva uzastopna spejsa
-        else if(tekst[i] == ' ' && tekst[i+1] == ' ') { } 
+        else if(tekst[i] == ' ' && tekst[i+1] == ' ') { PodvuciCrveno(i, i+1); } //podvuci crveno, dva uzastopna spejsa
 
     }
+    function PodvuciCrveno(index1, index2)
+    {
+        // ubacuje span sa klasom da bi ga podvuklo crvenom
+        textArea.innerHTML = tekst.slice(0, index1) + '<span class=underline-crven>' + tekst.slice(index1, index2 + 1) +  '</span>' + tekst.slice(index2, tekst.length-1);
+    }
 }
-
 
 function PravilnaRecIliNe(rec)
 {
