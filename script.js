@@ -3,22 +3,21 @@
 
 var typingTimer;                //timer identifier
 var doneTypingInterval = 3000;  //time in ms (5 seconds)
-let textArea = document.getElementsByTagName('input')[0]; // za sad je samo za jedan, bice za sve
+let textArea = document.getElementsByTagName('div')[0]; // za sad je samo za jedan, bice za sve
 
 
 //funkcija da se upali funkcija ProveriGreske kad se zavrsi tajmer od 3 sekunde
 textArea.addEventListener('keyup', () => {
     clearTimeout(typingTimer);
-    if (textArea.value) {
+    if (textArea.innerHTML) {
         typingTimer = setTimeout(ProveriGreske, doneTypingInterval);
     }
 });
 
 function ProveriGreske() // kad se zavrsi kucanje proverava text input boxa
 {
-    let tekst = textArea.value;
+    let tekst = textArea.innerText;
     ProveriZaTypos(tekst);
-    return;
     let reci = tekst.split(' ');
     for(let i = 0; i < reci.length; i++) // for za svaku rec ukucanu
     {
@@ -30,22 +29,30 @@ function ProveriGreske() // kad se zavrsi kucanje proverava text input boxa
 function ProveriZaTypos(tekst)
 {
     console.log(tekst);
-    for(let i = 0; i < tekst.length - 2; i++) // za svaki karakter u tekstu
-    {
-        if(tekst[i] == '.' && tekst[i+1] != ' '){ // treba da obelezi da treba space
-            PodvuciCrveno(i, i+1);// podvuci crveno, treba razmak posle tacke
-            
-            if(tekst[i+1].charCodeAt(0)>=97 && tekst[i+1].charCodeAt(0) <= 122){
-                PodvuciCrveno(i, i+1); // podvuci crveno, treba veliko slovo
-            }
-        }
-        else if(tekst[i] == ' ' && tekst[i+1] == ' ') { PodvuciCrveno(i, i+1); } //podvuci crveno, dva uzastopna spejsa
 
-    }
-    function PodvuciCrveno(index1, index2)
+    for(let i = 0; i < tekst.length - 3; i++) // za svaki karakter u tekstu
     {
+        if(tekst[i] == '.' && tekst[i+1] != ' '){ // treba razmak posle tacke
+            PodvuciCrveno(i, i+1); 
+            
+            if(tekst[i+1].charCodeAt(0)>=97 && tekst[i+1].charCodeAt(0) <= 122) { PodvuciCrveno(i, i+1); } // treba veliko slovo
+            
+            else if(tekst[i+1] == '.' && tekst[i+2] != '.') { PodvuciCrveno(i, i+1); } // samo dve tacke, predlozi samo jednu
+        }
+        else if(tekst[i] == ',' && tekst[i+1] != ' '){ // treba razmak posle zareza
+            PodvuciCrveno(i, i+1); 
+            
+            if(tekst[i+1] == ',') { PodvuciCrveno(i, i+1); } // dva zareza, predlozi samo jedan
+        }
+        else if(tekst[i].charCodeAt(0) == 160) { PodvuciCrveno(i, i + 1); } // dva uzastopna spejsa
+    }
+
+
+    function PodvuciCrveno(index1, index2) 
+    {
+        console.log('Podvuci');
         // ubacuje span sa klasom da bi ga podvuklo crvenom
-        textArea.innerHTML = tekst.slice(0, index1) + '<span class=underline-crven>' + tekst.slice(index1, index2 + 1) +  '</span>' + tekst.slice(index2, tekst.length-1);
+        textArea.innerHTML = textArea.innerText.slice(0, index1) + '<span class=underline-crven>' + textArea.innerText.slice(index1, index2 + 1) +  '</span>' + textArea.innerText.slice(index2 + 1, textArea.innerText.length);
     }
 }
 
@@ -79,9 +86,6 @@ function PravilnaRecIliNe(rec)
 
 }
 
-
-
-
 // vraca index reci ili najblize
 function BinarnaPretragaPoRecniku(rec){
     var startIndex  = 0,
@@ -99,9 +103,6 @@ function BinarnaPretragaPoRecniku(rec){
     }
     return middle;
 }
-
-
-
 
 
 // A Space efficient Dynamic Programming
