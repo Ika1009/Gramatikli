@@ -38,9 +38,12 @@ function ProveriZaTypos(tekst) {
             else if (tekst[i + 1] == '.' && tekst[i + 2] != '.') { PodvuciCrveno(i, i + 1); } // samo dve tacke, predlozi samo jednu    
         }
         else if (tekst[i] == ',') {
-            if (tekst[i + 1].charCodeAt(0) == 32) { PodvuciCrveno(i, i + 1); }// treba razmak posle zareza
+            if (tekst[i + 1].charCodeAt(0) != 32) { PodvuciCrveno(i, i + 1); }// treba razmak posle zareza
             else if (tekst[i + 1] == ',') { PodvuciCrveno(i, i + 1); } // dva zareza, predlozi samo jedan
         }
+        else if(tekst[i + 1].charCodeAt(0) >= 65 && tekst[i + 1].charCodeAt(0) <= 89 && 
+                tekst[i].charCodeAt(0) >= 97 && tekst[i].charCodeAt(0) <= 122 ) { PodvuciCrveno(i, i + 1); } // veliko slovo u sredini reci npr: teGla
+        
         else if (tekst[i].charCodeAt(0) == 160) { PodvuciCrveno(i, i + 1); } // dva uzastopna spejsa
     }
 
