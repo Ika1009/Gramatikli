@@ -7091,13 +7091,13 @@ let recnik = {
           "word": "Dončić",
           "description": "Ime ili prezime, iz Narodne enciklopedije srpsko-hrvatsko-slovenačke, Prezime Ilije Dončića, čoveka koji je napravio ovu aplikaciju.",
           "statement": [
-            "Domanović",
-            "Domanovića",
-            "Domanoviću",
-            "Domanovića",
-            "Domanoviću",
-            "Domanovićem",
-            "Domanoviću",
+            "Dončić",
+            "Dončića",
+            "Dončiću",
+            "Dončića",
+            "Dončiću",
+            "Dončićem",
+            "Dončiću",
             "Početni unos.",
             "Automatski unos"
           ]
