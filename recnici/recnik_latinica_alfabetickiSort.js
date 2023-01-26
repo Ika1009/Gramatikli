@@ -97344,7 +97344,6 @@ let recnik_latinica_alfabeticki_sort = [
 "mikulića",
 "mikulčić",
 "mikšić",
-"mil",
 "mila",
 "miladije",
 "milaim",
