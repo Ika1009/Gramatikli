@@ -1,4 +1,4 @@
-# Gramatikli 🚀
+# Gramatikli
 
 Gramatikli je AI-pogonjeni alat za proveru i poboljšanje pisanog izraza na srpskom jeziku, razvijen kako bi digitalizovao proces pisanja i podigao profesionalni nivo poslovne i akademske korespondencije. Pruža sveobuhvatnu podršku korisnicima kroz dva osnovna modula:
 
